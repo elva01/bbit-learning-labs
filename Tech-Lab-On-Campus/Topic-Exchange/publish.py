@@ -22,7 +22,7 @@ def main(ticker: str, price: float, sector: str) -> None:
     
     # Implement Logic to Create Routing Key from the ticker and sector variable -  Step 2
     #
-    #                       WRITE CODE HERE!!!
+    routingKey = "Stock." + ticker + "." + sector
     #
 
 
@@ -31,7 +31,7 @@ def main(ticker: str, price: float, sector: str) -> None:
 
     # Implement Logic To Create a message variable from the variable EG. "TSLA price is now $500" - Step 3
     #
-    #                       WRITE CODE HERE!!!
+    message = ticker + " price is now " + price
     #
     
     
@@ -41,7 +41,11 @@ if __name__ == "__main__":
 
     # Implement Logic to read the ticker, price and sector string from the command line and save them - Step 1
     #
-    #                       WRITE CODE HERE!!!
+    ticker = sys.argv[0]
+    price = sys.argv[1]
+    sector = sys.argv[2]
+    
+
     #
 
     sys.exit(main(ticker,price,sector))
