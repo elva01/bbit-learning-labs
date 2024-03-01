@@ -41,10 +41,10 @@ if __name__ == "__main__":
 
     # Implement Logic to read the ticker, price and sector string from the command line and save them - Step 1
     #
-    ticker = sys.argv[0]
-    price = sys.argv[1]
-    sector = sys.argv[2]
-    
+    ticker = sys.argv[1]
+    price = sys.argv[2]
+    sector = sys.argv[3]
+
 
     #
 
