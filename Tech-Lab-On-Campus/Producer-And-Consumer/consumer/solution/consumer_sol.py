@@ -9,7 +9,7 @@ class mqConsumer(mqConsumerInterface):
         self.binding_key = binding_key
         self.queue_name = queue_name
         self.exchange_name = exchange_name
-        self.setupRMQConnection(self)
+        self.setupRMQConnection()
     
     def setupRMQConnection(self):
         # Establish connection to the RabbitMQ service
@@ -25,7 +25,7 @@ class mqConsumer(mqConsumerInterface):
         self.channel.queue_bind(self.queue_name, self.exchange_name, self.binding_key)
 
         # Finally set up a callback function for receiving messages
-        self.channel.basic_consume(self.channel.queue_name, self.on_message_callback, auto_ack=False)
+        self.channel.basic_consume(self.queue_name, self.on_message_callback, auto_ack=False)
 
     def on_message_callback(self, channel, method_frame, header_frame, body) -> None:
         # Print the UTF-8 string message and then close the connection.
