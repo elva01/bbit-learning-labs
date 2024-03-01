@@ -28,11 +28,9 @@ class mqConsumer(mqConsumerInterface):
         self.channel.basic_consume(self.queue_name, self.on_message_callback, auto_ack=False)
 
     def on_message_callback(self, channel, method_frame, header_frame, body) -> None:
-        # Print the UTF-8 string message and then close the connection.
+        # Print the UTF-8 string message
         self.channel.basic_ack(method_frame.delivery_tag, False)
-        print(body)
-        self.connection.close()
-    
+        print(body)    
 
     def startConsuming(self) -> None:
         # Print " [*] Waiting for messages. To exit press CTRL+C"
